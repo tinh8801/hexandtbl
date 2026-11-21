@@ -512,7 +512,7 @@ void hexandtabler::on_actionExit_triggered() {
 
 void hexandtabler::on_actionAbout_triggered() {
     QMessageBox::about(this, tr("hexandtabler"), 
-                       "<p>Author: FEES</p>");
+                       "<p>Author: FEES</p><br><p>Compile for Windows by Huy Thắng</p>");
 }
 
 void hexandtabler::on_actionDarkMode_triggered(bool checked) {
