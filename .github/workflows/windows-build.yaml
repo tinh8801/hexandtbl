@@ -29,8 +29,15 @@ jobs:
       - name: Compile
         run: cmake --build build --config Release --parallel
 
-      - name: Upload executable
+      - name: Package Qt runtime
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force package
+          Copy-Item build/Release/hexandtabler.exe package/
+          windeployqt --release package/hexandtabler.exe
+
+      - name: Upload package
         uses: actions/upload-artifact@v6
         with:
           name: hexandtabler-windows
-          path: build/Release/hexandtabler.exe
+          path: package/
